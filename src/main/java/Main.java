@@ -1,19 +1,18 @@
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ReadFile readFile = new ReadFile();
-        String fileStr = readFile.read("input.json");
-        JsonParser jsonParser = new JsonParser();
+        final ReadFile readFile = new ReadFile();
+        final String fileStr = readFile.read("input.json");
+        final JsonParser jsonParser = new JsonParser();
 
-        HashMap<Integer, ArrayList<ArrayList<String>>>  str = jsonParser.parse(fileStr);
-        Integer bitSize = jsonParser.bitSize(fileStr);
+        final HashMap<Integer, List<List<String>>> hashMap = jsonParser.parse(fileStr);
 
-        Compound compound = new Compound();
-        ArrayList<ArrayList<String>> str_2 = compound.compound(str, bitSize);
+        final Compound compound = new Compound();
+        final List<List<String>> solution = compound.compound(hashMap);
 
-        WriteToFile writeToFile = new WriteToFile();
-        writeToFile.write(str_2, "output_1.json");
+        final WriteToFile writeToFile = new WriteToFile();
+        writeToFile.write(solution, "output.json");
     }
 }

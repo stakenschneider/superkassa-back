@@ -3,6 +3,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ReadFile {
+    /**
+     * Read input from a file and writes it to a string.
+     *
+     * @param filename - the name of the file in which the input data is stored
+     * @return input string
+     */
     public String read(String filename) {
         StringBuilder result = new StringBuilder();
         try {
@@ -15,7 +21,6 @@ public class ReadFile {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
         return result.toString();
